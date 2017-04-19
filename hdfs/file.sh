@@ -4,7 +4,7 @@
 hadoop fs -mkdir /my/path
 
 #上传文件
-#若是windows路径使用"/"或"\\"作为分隔符
+#若是windows路径要使用"/"作为分隔符，否则会提示“unexpected URISyntaxException”
 hadoop fs –put /local/file /remote/path
 hadoop fs –copyFromLocal /local/file /remote/path
 
@@ -18,4 +18,4 @@ hadoop fs –get /remote/file /local/path
 hadoop fs –copyToLocal /remote/file /local/path
 
 #删除文件
-hadoop fs -rm /remote/file
+hadoop fs -rm /remote/myfile
