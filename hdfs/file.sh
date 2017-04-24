@@ -1,4 +1,5 @@
 #hdfs文件操作
+#注意：haddop fs可以用hdfs dfs代替
 
 #创建目录
 hadoop fs -mkdir /my/path
