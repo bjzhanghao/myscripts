@@ -4,3 +4,7 @@
 List(1,2,3)
 List.range(1,10)
 List.range(1,10,2)
+
+//构造一个array
+Array(1,2,3)
+Array.range(1,10)
