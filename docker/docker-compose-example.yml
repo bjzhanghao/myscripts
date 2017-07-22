@@ -1,0 +1,60 @@
+version: '2'
+services:
+  example-rest:
+    image: dev.acme.com:5001/my/gw-example:2.0.0
+    tty: true
+    ports:
+      - "8080:8080"
+    logging:
+      options:
+        max-size: 1g
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /example/sqliteDB:/opt/sqliteDB
+    environment:
+      spring.datasource.url: jdbc:mysql://10.32.1.205:3306/gw_example?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&rewriteBatchedStatements=true
+      spring.datasource.username: root
+      spring.datasource.password: mypassword
+      cas.server.url.prefix: https://10.1.235.3:8443/cas
+      app.server.url.prefix: http://example-restapi-1649436155.cn-north-1.elb.amazonaws.com.cn/example/api/v1
+      cas.sso.enable: "true"
+      PAS_SERVICE: http://10.1.235.3:28085/pas/services
+    command: start
+  gw-example-ui:
+    image: dev.acme.com:5001/my/gw-example-ui:dev-2.0.0
+    environment:
+      NODE_ENV: production
+      APP_NAME: example
+      APP_TITLE: example
+      RESOLVE_HOST: "true"
+      example_API: http://example-restapi-1649436155.cn-north-1.elb.amazonaws.com.cn/example/api/v1/
+      USE_CAS: "true"
+      AUTH_API: "true"
+      NODE_TLS_REJECT_UNAUTHORIZED: 0
+      SERVICE_PREFIX: http://example-1119761245.cn-north-1.elb.amazonaws.com.cn
+      CAS_SERVER_PATH: https://10.1.235.3:8443
+    ports:
+    - 80:5005
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - /etc/timezone:/etc/timezone:ro
+    logging:
+      options:
+        max-size: 1g
+  example-db:
+    hostname: example-db
+    image: dev.acme.com:5001/mysql:5.7.11
+    environment:
+      MYSQL_DATABASE: mydb
+      MYSQL_ROOT_PASSWORD: mypassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      # s_depends_on:
+      # - sdm-api
+    logging:
+      options:
+        max-size: 1g
