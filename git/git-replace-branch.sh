@@ -2,7 +2,4 @@
 #替换完成后，两个分支内容都是原来branch1的
 git checkout branch2
 git reset --hard branch1
-git push origin branch2
-
-
-
+git push -f origin branch2
