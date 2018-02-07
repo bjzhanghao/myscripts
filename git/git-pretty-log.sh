@@ -1,7 +1,7 @@
 #在命令行里以更易读的方式显示log
 # --oneline 单行显示commit信息
-# --graph显示树状分支图
-# --decorate显示分支名称
+# --graph 显示树状分支图
+# --decorate 显示分支名称
 git log --oneline --graph --decorate
 
 * 07b9804 (HEAD, origin/master, origin/HEAD, master) Added git replace branch script
