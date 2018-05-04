@@ -1,5 +1,4 @@
-#根据socket服务log统计：
-
+#sed是一个管道命令，主要以行为单位进行处理，可以对数据行进行替换、删除、新增、选取等特定工作
 
 #统计时间(sediment)-风机：
 cat netty-server.log|sed -n '/Say/s/.*sediment|//g;s/|(realtimedata|/, /g;s/|.*//g'p
