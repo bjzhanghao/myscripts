@@ -1,0 +1,2 @@
+#查看wakelock等电源相关状态
+dumpsys power
