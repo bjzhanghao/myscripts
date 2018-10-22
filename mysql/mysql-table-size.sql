@@ -1,3 +1,6 @@
-#²é¿´mysqlÊý¾Ý¿âÀïÃ¿¸ö±íµÄÐÐÊýºÍÕ¼ÓÃ¿Õ¼ä´óÐ¡
+ï»¿#ä½¿ç”¨information_schemaè¡¨ï¼ˆå®žé™…æ˜¯è§†å›¾ï¼‰
 use information_schema;
 select table_schema, table_name, table_rows, data_length, index_length from tables;
+
+#æˆ–ä½¿ç”¨mysqlshowå‘½ä»¤
+mysqlshow --status mydb mytable

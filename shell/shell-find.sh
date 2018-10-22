@@ -14,6 +14,9 @@
 #将所有查找结果文件删除
 > find . -type f -name "myfile.txt" -exec rm -f {} \;
 
+#将所有user为root的文件chown为tomcat，只查找两层以内目录
+> find . -maxdepth 2 -user root -exec chown tomcat:tomcat {} \;
+
 
 #更多例子
 #https://www.tecmint.com/35-practical-examples-of-linux-find-command/
