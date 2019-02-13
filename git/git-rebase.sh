@@ -1,0 +1,2 @@
+#rebase命令用于操作一段commit，常见场景是操作本地的多个commit后push到远程，使得远程的提交历史更简洁
+git rebase
