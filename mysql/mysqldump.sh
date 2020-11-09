@@ -16,3 +16,7 @@ mysqldump -t ...
 #只备份表结构不备份数据
 #如果用户没有对标加锁的权限可使用--skip-lock-tables选项
 mysqldump --no-data ...
+
+#导入备份的数据
+mysql> use mydb
+mysql> source /tmp/mydb.sql
