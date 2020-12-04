@@ -17,6 +17,9 @@ mysqldump -t ...
 #如果用户没有对标加锁的权限可使用--skip-lock-tables选项
 mysqldump --no-data ...
 
-#导入备份的数据
+#导入备份的数据（在mysql命令行）
 mysql> use mydb
 mysql> source /tmp/mydb.sql
+
+#导入备份的数据（在linux命令行）
+mysql -uroot mydb < mydb.sql
