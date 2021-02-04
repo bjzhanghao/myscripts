@@ -8,7 +8,7 @@ mysqldump -uroot mydb mytable > ~/mytable.sql
 mysqldump mydb mytable --where="id>1234" ...
 
 #备份数据库（排除指定表 --ignore-table）
-mysqldump -uroot mydb --ignore-table=mytable1 --ignore-table=mytable2
+mysqldump -uroot mydb --ignore-table=mydb.mytable1 --ignore-table=mydb.mytable2
 
 #只备份数据不备份结构（-t）
 mysqldump -t ...
